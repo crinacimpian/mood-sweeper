@@ -22,7 +22,7 @@ export default class Board {
 	openTile(tile) {
 		if (tile.open)
 			throw new WarningError("Tile already open!");
-		this.explode(tile.x, tile.y)
+		return this.explode(tile.x, tile.y)
 	}
 
 	isComplete() {
@@ -51,27 +51,27 @@ export default class Board {
 
 	explode(x, y) {
 		try {
-			// alert(x+','+y);
 			let tile = this.tile(x, y);
-			if (tile.open) return;
+			// alert(x+','+y+','+tile.open);
+			if (tile.open) return false;
 			tile.open = true;
 			this.flipedTiles++;
-			// switch (tile.state) {
-			// 	case State.BOMB:
-			// 		throw new GameLostError();
-			// 	case State.NEUTRAL:
-			// 		this.explode(x, y - 1);
-			// 		this.explode(x, y + 1);
-			// 		this.explode(x - 1, y);
-			// 		this.explode(x + 1, y);
-			// 		this.explode(x - 1, y - 1);
-			// 		this.explode(x + 1, y + 1);
-			// 		this.explode(x + 1, y - 1);
-			// 		this.explode(x - 1, y + 1);
-			// 		break;
-			// 	default:
-			// 		return;
-			// }
+			switch (tile.state) {
+				case State.BOMB:
+					throw new GameLostError();
+				case State.NEUTRAL:
+					this.explode(x, y - 1);
+					this.explode(x, y + 1);
+					this.explode(x - 1, y);
+					this.explode(x + 1, y);
+					this.explode(x - 1, y - 1);
+					this.explode(x + 1, y + 1);
+					this.explode(x + 1, y - 1);
+					this.explode(x - 1, y + 1);
+					return true;
+				default:
+					return false;
+			}
 		} catch (e) {
 			if (e instanceof WarningError) return;
 			throw e;

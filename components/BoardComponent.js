@@ -13,23 +13,30 @@ export default function BoardComponent(props) {
   const height = matrix[0].length;
 
   const [isGameOver, endGame] = useState(false);
+  const [exploded, reRender] = useState(false);
 
   const Grid = () => {
     const _openTile = (tile) => {
       try {
-        board.openTile(tile);
+        let isExploded = board.openTile(tile);
         alert('Remaining tiles ' + board.flipedTiles + ', total' + board.totalTiles)
         if (board.isComplete()) {
           alert('End game');
           endGame(true);
+          return;
+        }
+        if (isExploded) {
+          reRender(!exploded);
         }
       } catch (e) {
-        if (e instanceof WarningError) alert(e);
+        if (e instanceof WarningError) {
+          alert("Warning error" + e);
+          return;
+        }
         if (e instanceof GameLostError) {
-          alert(e);
+          alert("Game over");
           endGame(true);
         }
-        alert(e);
       }
     }
     let matrixComponent = Array.from({ length: width }, (_, x) => {
