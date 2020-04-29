@@ -1,0 +1,17 @@
+{
+  "name": "MoodSweeper",
+  "description": "A twist of the MineSweeper game. The bombs are replaced with bad moods and you are given tips to change those moods when you encounter them.",
+  "expo": {
+    "name": "mobile",
+    "slug": "mobile",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
