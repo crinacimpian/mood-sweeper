@@ -1,17 +1,22 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { connect } from 'react-redux';
 
-import BoardComponent from './BoardComponent';
 import BoardGenerator from '../common/board-generator';
+import { updateBoard } from '../redux/actions';
+import Board from './BoardComponent';
+import Status from './StatusComponent';
 
-export default function GameComponent() {
+const Game = ({updateBoard}) => {
   const board = BoardGenerator.generate(4, 5, 2);
+  updateBoard(board);
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Mood Sweeper <Icon name="smile-o" size={25} color="blue" /></Text>
-      <BoardComponent board={board}/>
+      <Board/>
+      <Status remainingTiles={board.flipedTiles} />
     </View>
   );
 }
@@ -28,3 +33,5 @@ const styles = StyleSheet.create({
     fontStyle: 'bold'
   }
 });
+
+export default connect(null, {updateBoard})(Game);

@@ -12,13 +12,6 @@ export default class Board {
 		this.flipedTiles = 0;
 	}
 
-	//  constructor(prevChange) {
-	//     matrix = JSON.decode(JSON.encode(arr1));
-	// 	this.prev = prevChange;
-	// 	this.totalTiles = matrix.length * matrix[0].length;
-	// 	this.flipedTiles = prevChange.flipedTiles;
-	// }
-
 	openTile(tile) {
 		if (tile.open)
 			throw new WarningError("Tile already open!");
@@ -32,10 +25,6 @@ export default class Board {
 	remainingTiles() {
 		return this.totalTiles - this.flipedTiles;
 	}
-
-	// previousState() {
-	// 	return prev;
-	// }
 
 	reveal() {
 		return this.matrix;
