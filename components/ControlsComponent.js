@@ -22,8 +22,8 @@ const Controls = ({ newBoard }) => {
                         leftIcon={{ type: 'font-awesome', name: 'arrows-h' }}
                         onChangeText={(width) => setWidth(width)}
                         containerStyle={styles.input}
-                        inputStyle={styles.input}
-                        value={width}
+                        inputStyle={styles.inputText}
+                        value={width.toString()}
                     />
                 </View>
             </View>
@@ -34,14 +34,14 @@ const Controls = ({ newBoard }) => {
                         leftIcon={{ type: 'font-awesome', name: 'arrows-v' }}
                         onChangeText={(height) => setHeight(height)}
                         containerStyle={styles.input}
-                        inputStyle={styles.input}
-                        value={height}
+                        inputStyle={styles.inputText}
+                        value={height.toString()}
                     />
                 </View>
                 <View style={styles.column}>
                     <Button buttonStyle={styles.button} type="solid"
                         onPress={() => newBoard(width, height)}
-                        title="New Game"
+                        title="New Challenge"
                         icon={<Icon name='play-circle-o' size={25} color="white" />}
                     />
                 </View>
@@ -71,10 +71,10 @@ const styles = StyleSheet.create({
         marginRight: 10,
         alignContent:'center'
     },
+    inputText: {
+        fontSize: 12
+    },
     button: {
-        width: 200,
-        height: 40,
-        backgroundColor: '#ccc',
         alignContent: 'center'
     }
 });

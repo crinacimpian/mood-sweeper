@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 import { newBoard } from '../redux/actions';
+import Banner from './BannerComponent';
 import Board from './BoardComponent';
 import Status from './StatusComponent';
 import Controls from './ControlsComponent';
@@ -13,6 +14,7 @@ const Game = ({ newBoard }) => {
 
   return (
     <View style={styles.container}>
+      <Banner/>
       <Board />
       <Status />
       <Controls />

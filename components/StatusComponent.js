@@ -12,11 +12,11 @@ const Status = (props) => {
     const board = props.board.board;
     const remainingTiles = () => {
         if (!board.isComplete())
-            return (<Text style={styles.text}>Remaining tiles: {board.remainingTiles}</Text>);
+            return (<Text style={styles.text}>Choices: {board.remainingTiles}</Text>);
     }
     const gameStatus = () => {
         if (board.isComplete())
-            return (<Text style={styles.text}>Game over: {board.state}</Text>);
+            return (<Text style={styles.text}>Your dominant element is: {board.state}</Text>);
     }
     return (
         <View style={styles.container}>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         paddingTop: 20
     },
     text: {
-        fontSize: 16,
+        fontSize: 12,
         color: 'black',
         paddingLeft: 40,
         fontStyle: 'normal'
