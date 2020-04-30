@@ -4,6 +4,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
 import { PersistGate } from 'redux-persist/es/integration/react'
+import { Header } from 'react-native-elements';
 
 import Game from './components/GameComponent';
 
@@ -15,6 +16,11 @@ export default function App() {
       <PersistGate
         persistor={persistor}>
         <SafeAreaProvider>
+        <Header
+            leftComponent={{ icon: 'menu', color: '#fff' }}
+            centerComponent={{ text: 'Mood Sweeper', style: { color: '#fff' } }}
+            rightComponent={{ icon: 'spa', color: '#fff', icontType: 'material-community' }}
+            />
           <SafeAreaView style={styles.container}>
             <Game />
           </SafeAreaView >

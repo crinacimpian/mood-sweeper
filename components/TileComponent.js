@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-elements';
-
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Button, Badge } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { NEUTRAL, NUMBER, BOMB } from '../common/state';
 
@@ -14,31 +13,35 @@ export default function TileComponent(props) {
         if (tile.open || props.reveal)
             switch (tile.state) {
                 case BOMB:
-                    return { fa: "bomb", color: "red" };
+                    return { fa: "emoticon-angry-outline", color: "#f31313", size: 20, badgeNumber: 0 };
                 case NUMBER:
-                    return { fa: "twitter", color: "yellow" };
+                    return { fa: "flower-poppy", color: "#f3d113", size: 15, badgeNumber: tile.number };
                 case NEUTRAL:
-                    return undefined;
+                    return { fa: "leaf", color: "#5ae298", size: 10, badgeNumber: 0 };
             }
-        return undefined;
+        return { fa: "cloud-outline", color: "#0cbdee", size: 10, badgeNumber: 0 };
     }
 
-    if (icon())
-        return (<Button buttonStyle={styles.tile} type="solid"
-            onPress={() => props._openTile(tile)}
-            title=" "
-            key={tile.x * 100 + tile.y}
-            icon={<Icon name={icon().fa} size={20} color={icon().color} />}
-            iconRight
-            disabled={disabled}
-        />);
-    else
-        return (<Button buttonStyle={styles.tile} type="solid"
-            onPress={() => props._openTile(tile)}
-            title=" "
-            key={tile.x * 100 + tile.y}
-            disabled={disabled}
-        />);
+    const BadgeNumber = () => {
+        if (icon().badgeNumber > 0)
+            return <Badge value={icon().badgeNumber}
+                badgeStyle={{ width: 5, height: 10, backgroundColor: 'transparent' }}
+                textStyle={{ fontSize: 5, color: 'black' }}
+                containerStyle={{ position: 'absolute', top: -1, right: -1 }} />
+        return <View></View>;
+    }
+    return (
+        <View>
+            <Button buttonStyle={styles.tile} type="solid"
+                onPress={() => props._openTile(tile)}
+                key={tile.x * 100 + tile.y}
+                icon={<Icon name={icon().fa} color={icon().color} />}
+                iconRight
+                disabled={disabled} disabledStyle={{ backgroundColor: 'transparent' }}
+            />
+            <BadgeNumber />
+
+        </View>);
 
 }
 
@@ -48,12 +51,12 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end",
         alignContent: 'flex-end',
         flexDirection: 'column',
-        backgroundColor: 'gray'
+        backgroundColor: 'transparent'
     },
     tile: {
-        width: 20,
-        height: 20,
-        backgroundColor: '#ccc',
+        width: 30,
+        height: 30,
+        backgroundColor: 'transparent',
         alignContent: 'center'
     }
 });

@@ -28,15 +28,15 @@ const Status = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: "center",
-        paddingHorizontal: 10,
+        justifyContent: "flex-start",
         flex:1,
-        flexDirection: 'row'
+        flexDirection: 'column',
+        paddingTop: 20
     },
     text: {
         fontSize: 16,
         color: 'black',
-        padding: 5,
+        paddingLeft: 40,
         fontStyle: 'normal'
     }
 });

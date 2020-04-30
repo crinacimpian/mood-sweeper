@@ -42,9 +42,8 @@ const Board = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 40,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
+    justifyContent: 'center',
+    alignItems: 'center',
     flexDirection: 'column'
   },
   row: {

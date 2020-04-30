@@ -15,19 +15,26 @@ const Controls = ({ newBoard }) => {
     return (
         <View style={styles.container}>
             <View style={styles.row}>
+                <View style={styles.column}></View>
                 <View style={styles.column}>
                     <Input
                         placeholder="width"
                         leftIcon={{ type: 'font-awesome', name: 'arrows-h' }}
                         onChangeText={(width) => setWidth(width)}
                         containerStyle={styles.input}
+                        inputStyle={styles.input}
                         value={width}
                     />
+                </View>
+            </View>
+            <View style={styles.row}>
+                <View style={styles.column}>
                     <Input
                         placeholder="height"
                         leftIcon={{ type: 'font-awesome', name: 'arrows-v' }}
                         onChangeText={(height) => setHeight(height)}
                         containerStyle={styles.input}
+                        inputStyle={styles.input}
                         value={height}
                     />
                 </View>
@@ -35,19 +42,19 @@ const Controls = ({ newBoard }) => {
                     <Button buttonStyle={styles.button} type="solid"
                         onPress={() => newBoard(width, height)}
                         title="New Game"
-                        icon={<Icon name='play-circle-o' size={25} color="black" />}
+                        icon={<Icon name='play-circle-o' size={25} color="white" />}
                     />
                 </View>
             </View>
-        </View>
+        </View >
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         justifyContent: "center",
-        margin: 20,
-        flex: 1
+        flex: 1,
+        flexDirection: 'column'
     },
     row: {
         flex: 1,
@@ -55,16 +62,18 @@ const styles = StyleSheet.create({
     },
     column: {
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        marginRight: 10
     },
     input: {
-        margin: 20,
-        width: 100
+        width: 100,
+        marginRight: 10,
+        alignContent:'center'
     },
     button: {
         width: 200,
         height: 40,
-        margin: 20,
         backgroundColor: '#ccc',
         alignContent: 'center'
     }
