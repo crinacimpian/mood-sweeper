@@ -1,5 +1,9 @@
-export default class State {
-    static get NEUTRAL() {return "NEUTRAL"};
-    static get BOMB() {return "BOMB"};
-    static get NUMBER() {return "NUMBER"};
-  }
+export const NEUTRAL = "NEUTRAL";
+export const BOMB = "BOMB";
+export const NUMBER = "NUMBER";
+export const INCOMPLETE = "INCOMPLETE";
+export const SUCCESS = "SUCCESS";
+export const FAIL = "FAIL";
+export const DEFAULT_WIDTH=5;
+export const DEFAULT_HEIGHT=5;
+export const MAX_SIZE=20;

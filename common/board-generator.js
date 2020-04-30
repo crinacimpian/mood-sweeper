@@ -1,73 +1,63 @@
-import Tile from './tile';
-import State from './state';
+
+import {BOMB} from './state';
 import Board from './board';
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT, MAX_SIZE } from '../common/state';
 
 export default class BoardGenerator {
-    constructor(width, height, bombs) {
-        this.width = width;
-        this.height = height;
-        this.bombs = bombs;
-        this.matrix = Array.from({ length: this.width }, (_, x) => Array.from({ length: this.height }, (_, y) => new Tile(x, y, State.NEUTRAL)));
+    #bombs;
+    #board;
+
+    constructor(board, bombs) {
+        this.#board = board;
+        this.#bombs = bombs;
     }
 
-    static generate(width, height, bombs) {
-        return new BoardGenerator(width, height, bombs).random();
+    static generate(width, height) {
+        width = parseInt(width);
+        if (!width) width = DEFAULT_WIDTH;
+        else if (width <= 0 || width > MAX_SIZE) {width=DEFAULT_WIDTH;}
+
+        height = parseInt(height);
+        if (!height) height = DEFAULT_HEIGHT;
+        else if (height <= 0 || height > MAX_SIZE) {height=DEFAULT_HEIGHT;}
+
+        let bombs = Math.floor(Math.random() * (width - 1));
+        return new BoardGenerator(new Board(width, height), bombs).random();
     }
 
     random() {
         this.addBombs();
         this.setCluesOnTilesNearBombs();
-        return new Board(this.matrix);
+        return this.#board;
     }
 
     addBombs() {
-        let i = 0, limit = this.width * this.height;
-        while (i < this.bombs) {
-            let x = Math.floor(Math.random() * (this.width - 1));
-            let y = Math.floor(Math.random() * (this.height - 1));
-            console.log(this.bombs)
-            console.log('random - (' + i + ') x:' + x + ', y:' + y + ', state:' + this.matrix[x][y].state);
-            if (this.matrix[x][y].state === State.NEUTRAL) {
-                this.matrix[x][y].state = State.BOMB;
-                i++;
-            }
+        let width = this.#board.width, height = this.#board.height;
+        let i = 0;
+        while (i < this.#bombs) {
+            let x = Math.floor(Math.random() * (width - 1));
+            let y = Math.floor(Math.random() * (height - 1));
+            if (this.#board.setBomb(x,y)) i++;
         }
     }
 
     setCluesOnTilesNearBombs() {
+        let width = this.#board.width, height = this.#board.height;
         let x, y;
-        for (x = 0; x < this.width; x++)
-            for (y = 0; y < this.height; y++) {
-                if (this.matrix[x][y].state == State.BOMB) {
-                    this.increaseTileCount(x - 1, y);
-                    this.increaseTileCount(x - 1, y - 1);
-                    this.increaseTileCount(x, y - 1);
-                    this.increaseTileCount(x + 1, y);
-                    this.increaseTileCount(x + 1, y + 1);
-                    this.increaseTileCount(x, y + 1);
-                    this.increaseTileCount(x - 1, y + 1);
-                    this.increaseTileCount(x + 1, y - 1);
+        for (x = 0; x < width; x++)
+            for (y = 0; y < height; y++) {
+                let tile = this.#board.tile(x,y);
+                if (tile.state == BOMB) {
+                    this.#board.increaseTileCount(x - 1, y);
+                    this.#board.increaseTileCount(x - 1, y - 1);
+                    this.#board.increaseTileCount(x, y - 1);
+                    this.#board.increaseTileCount(x + 1, y);
+                    this.#board.increaseTileCount(x + 1, y + 1);
+                    this.#board.increaseTileCount(x, y + 1);
+                    this.#board.increaseTileCount(x - 1, y + 1);
+                    this.#board.increaseTileCount(x + 1, y - 1);
                 }
             }
-    }
-
-    increaseTileCount(x, y) {
-        if (x < 0 || x >= this.matrix.length)
-            return;
-        if (y < 0 || y >= this.matrix[0].length)
-            return;
-        let tile = this.matrix[x][y];
-        if (tile.state == State.NEUTRAL)
-            tile.state = State.NUMBER;
-        switch (tile.state) {
-            case State.BOMB:
-                return;
-            case State.NUMBER:
-                tile.number = tile.number + 1;
-                break;
-            default:
-        }
-
     }
 
 }

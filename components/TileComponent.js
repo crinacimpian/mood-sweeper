@@ -1,40 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import State from '../common/state';
+import { NEUTRAL, NUMBER, BOMB } from '../common/state';
 
 export default function TileComponent(props) {
     const tile = props.tile;
-    const _openTile = props._openTile;
-    const [isOpen, setOpen] = useState(tile.open);
+    const disabled = tile.open || props.reveal;
 
-    const open = () => {
-        _openTile(tile);
-        setOpen(true);
-    };
     const icon = () => {
-        if (isOpen || props.reveal) {
+        if (tile.open || props.reveal) {
             switch (tile.state) {
-                case State.BOMB:
+                case BOMB:
                     return { fa: "bomb", color: "red" };
-                case State.NUMBER:
+                case NUMBER:
                     return { fa: "twitter", color: "yellow" };
-                case State.NEUTRAL:
+                case NEUTRAL:
                     return { fa: "bars", color: "green" };
             }
         }
         return { fa: "bars", color: "gray" };
     }
 
-    return (<Button style={styles.tile} type="clear"
-        onPress={() => open()}
+    return (<Button buttonStyle={styles.tile} type="solid"
+        onPress={() => props._openTile(tile)}
         title=" "
         key={tile.x * 100 + tile.y}
         icon={<Icon name={icon().fa} size={25} color={icon().color} />}
         iconRight
+        disabled={disabled}
     />);
 }
 

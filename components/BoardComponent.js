@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
-import GameLostError from '../common/gamelost-error';
 import Tile from './TileComponent';
+import { updateBoard } from '../redux/actions';
 
 const mapStateToProps = state => {
   return {
@@ -13,42 +13,27 @@ const mapStateToProps = state => {
 
 const Board = (props) => {
   const board = props.board.board;
-  const matrix = board.reveal();
+  const matrix = board.content;
   const width = matrix.length;
   const height = matrix[0].length;
 
-  const [isGameOver, endGame] = useState(false);
-  const [exploded, reRender] = useState(false);
-
   const _openTile = (tile) => {
     try {
-      let isExploded = board.openTile(tile);
-      alert('Remaining tiles ' + board.flipedTiles + ', total' + board.totalTiles)
-      if (board.isComplete()) {
-        alert('End game');
-        endGame(true);
-        return;
-      }
-      if (isExploded) {
-        reRender(!exploded);
-      }
-    } catch (e) {
-      if (e instanceof GameLostError) {
-        endGame(true);
-      }
-    }
+      board.openTile(tile);
+    } catch (e) { }
+    props.updateBoard(board);
   }
 
   const Grid = () => {
     let matrixComponent = Array.from({ length: width }, (_, x) => {
       let row = Array.from({ length: height }, (_, y) => {
-        return <Tile tile={matrix[x][y]} _openTile={_openTile} reveal={isGameOver} />
+        return <Tile tile={matrix[x][y]} _openTile={_openTile} reveal={board.isComplete()} />
       });
       return (
         <View style={styles.row}>{row}</View>
       );
     });
-    return <View>{matrixComponent}</View>;
+    return <View style={styles.container}>{matrixComponent}</View>;
   };
   return (
     <Grid />
@@ -56,10 +41,13 @@ const Board = (props) => {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    margin: 40,
+    flex: 1
+  },
   row: {
-    flex: 1,
     flexDirection: 'row'
   }
 });
 
-export default connect(mapStateToProps)(Board);
+export default connect(mapStateToProps, { updateBoard })(Board);

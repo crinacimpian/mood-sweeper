@@ -37,18 +37,4 @@ export default class Tile {
         this.#number = newNumber;
     }
 
-
-    value() {
-        switch (this.#state) {
-            case BOMB:
-                return "!";
-            case NEUTRAL:
-                return " ";
-            case NUMBER:
-                return String.valueOf(this.#number);
-            default:
-                return "";
-        }
-    }
-
 }
