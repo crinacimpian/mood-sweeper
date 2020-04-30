@@ -29,7 +29,9 @@ const Status = (props) => {
 const styles = StyleSheet.create({
     container: {
         justifyContent: "center",
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        flex:1,
+        flexDirection: 'row'
     },
     text: {
         fontSize: 16,

@@ -9,7 +9,7 @@ import Status from './StatusComponent';
 import Controls from './ControlsComponent';
 
 const Game = ({ newBoard }) => {
-  
+
   newBoard();
 
   return (
@@ -24,13 +24,13 @@ const Game = ({ newBoard }) => {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
-    paddingHorizontal: 10,
-    flex: 1
+    justifyContent: 'flex-start',
+    flex: 1,
+    flexDirection: 'column'
   },
   text: {
     fontSize: 30,
-    color: 'blue',
+    color: 'black',
     padding: 5,
     fontStyle: 'normal'
   }

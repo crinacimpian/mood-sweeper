@@ -14,8 +14,8 @@ const mapStateToProps = state => {
 const Board = (props) => {
   const board = props.board.board;
   const matrix = board.content;
-  const width = matrix.length;
-  const height = matrix[0].length;
+  const height = board.height;
+  const width = board.width;
 
   const _openTile = (tile) => {
     try {
@@ -25,9 +25,9 @@ const Board = (props) => {
   }
 
   const Grid = () => {
-    let matrixComponent = Array.from({ length: width }, (_, x) => {
-      let row = Array.from({ length: height }, (_, y) => {
-        return <Tile tile={matrix[x][y]} _openTile={_openTile} reveal={board.isComplete()} />
+    let matrixComponent = Array.from({ length: height }, (_, y) => {
+      let row = Array.from({ length: width }, (_, x) => {
+        return <Tile tile={matrix[y][x]} _openTile={_openTile} reveal={board.isComplete()} />
       });
       return (
         <View style={styles.row}>{row}</View>
@@ -43,10 +43,14 @@ const Board = (props) => {
 const styles = StyleSheet.create({
   container: {
     margin: 40,
-    flex: 1
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    flexDirection: 'column'
   },
   row: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start'
   }
 });
 

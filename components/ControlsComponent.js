@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
         height: 40,
         margin: 20,
         backgroundColor: '#ccc',
-        color: 'black',
         alignContent: 'center'
     }
 });

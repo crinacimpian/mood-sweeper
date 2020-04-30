@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-elements';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -11,35 +11,49 @@ export default function TileComponent(props) {
     const disabled = tile.open || props.reveal;
 
     const icon = () => {
-        if (tile.open || props.reveal) {
+        if (tile.open || props.reveal)
             switch (tile.state) {
                 case BOMB:
                     return { fa: "bomb", color: "red" };
                 case NUMBER:
                     return { fa: "twitter", color: "yellow" };
                 case NEUTRAL:
-                    return { fa: "bars", color: "green" };
+                    return undefined;
             }
-        }
-        return { fa: "bars", color: "gray" };
+        return undefined;
     }
 
-    return (<Button buttonStyle={styles.tile} type="solid"
-        onPress={() => props._openTile(tile)}
-        title=" "
-        key={tile.x * 100 + tile.y}
-        icon={<Icon name={icon().fa} size={25} color={icon().color} />}
-        iconRight
-        disabled={disabled}
-    />);
+    if (icon())
+        return (<Button buttonStyle={styles.tile} type="solid"
+            onPress={() => props._openTile(tile)}
+            title=" "
+            key={tile.x * 100 + tile.y}
+            icon={<Icon name={icon().fa} size={20} color={icon().color} />}
+            iconRight
+            disabled={disabled}
+        />);
+    else
+        return (<Button buttonStyle={styles.tile} type="solid"
+            onPress={() => props._openTile(tile)}
+            title=" "
+            key={tile.x * 100 + tile.y}
+            disabled={disabled}
+        />);
+
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "flex-end",
+        alignContent: 'flex-end',
+        flexDirection: 'column',
+        backgroundColor: 'gray'
+    },
     tile: {
-        width: 40,
-        height: 40,
+        width: 20,
+        height: 20,
         backgroundColor: '#ccc',
-        color: '#b1b',
         alignContent: 'center'
     }
 });

@@ -1,7 +1,7 @@
 
 import {BOMB} from './state';
 import Board from './board';
-import { DEFAULT_WIDTH, DEFAULT_HEIGHT, MAX_SIZE } from '../common/state';
+import { DEFAULT_WIDTH, DEFAULT_HEIGHT, MAX_SIZE, MIN_BOMBS } from '../common/state';
 
 export default class BoardGenerator {
     #bombs;
@@ -22,6 +22,7 @@ export default class BoardGenerator {
         else if (height <= 0 || height > MAX_SIZE) {height=DEFAULT_HEIGHT;}
 
         let bombs = Math.floor(Math.random() * (width - 1));
+        if (bombs < MIN_BOMBS) bombs = MIN_BOMBS;
         return new BoardGenerator(new Board(width, height), bombs).random();
     }
 

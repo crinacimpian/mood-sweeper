@@ -15,7 +15,8 @@ export default class Board {
 	constructor(width, height) {
 		this.#width = width;
 		this.#height = height;
-		this.#matrix = Array.from({ length: width }, (_, x) => Array.from({ length: height }, (_, y) => new Tile(x, y, NEUTRAL)));
+		this.#matrix = Array.from({ length: height }, (_, y) => Array.from({ length: width }, (_, x) => new Tile(x, y, NEUTRAL)));
+		console.log(this.#matrix)
 		this.#totalTiles = width * height;
 		this.#flipedTiles = 0;
 		this.#bombs = 0;
@@ -110,6 +111,6 @@ export default class Board {
 			throw new WarningError("Tile out of bounds!");
 		if (y < 0 || y >= this.#height)
 			throw new WarningError("Tile out of bounds!");
-		return this.#matrix[x][y];
+		return this.#matrix[y][x];
 	}
 }
