@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Text, Linking } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import FontistoIcon from 'react-native-vector-icons/Fontisto';
+import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { connect } from 'react-redux';
 
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from '../common/state';
@@ -12,12 +14,19 @@ const Controls = ({ newBoard }) => {
     const [width, setWidth] = useState(DEFAULT_WIDTH);
     const [height, setHeight] = useState(DEFAULT_HEIGHT);
 
+
+
     return (
         <View style={styles.container}>
             <Text style={styles.text}>
-                {`
-
-                This body is part of earth, water, fire, air and ether.
+            {`
+                This body is part of `}
+                <FontistoIcon name='earth' />  earth,
+                {` `}<FontAwesome5Icon name='water' />  water,
+                {` `}<FontistoIcon name='fire' />  fire,{` 
+                 `}<FontistoIcon name='meteor' />  air and
+                {` `}<FontistoIcon name='atom' />  ether
+                {`.
                 The universe is just an expression of the Self.
                 There is nothing to control.
                 All it's happening in the Self, by the Self, for the Self.
