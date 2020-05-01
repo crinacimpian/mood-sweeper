@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import Tile from './TileComponent';
 import MoodChoices from './MoodChoicesComponent';
+import PosMoodChoice from './PosMoodChoiceComponent';
 import { updateBoard, addMood } from '../redux/actions';
 import GameLostError from '../common/gamelost-error';
 
@@ -19,7 +20,8 @@ const Board = (props) => {
   const matrix = board.content;
   const height = board.height;
   const width = board.width;
-  const [moodModal, _showMoodModal] = useState(false);
+  const [moodModal, _showMoodModal] = useState(0);
+  const [moodChoice, _setMoodChoice] = useState(0);
   const [currentTile, _setTile] = useState(false);
 
   const _openTile = (tile) => {
@@ -29,22 +31,43 @@ const Board = (props) => {
       props.updateBoard(board);
     } catch (e) {
       if (e instanceof GameLostError) {
-        _showMoodModal(true);
+        _showMoodModal(1);
       }
     }
   }
 
-  const _chooseMood = (mood) => {
+  const _addMood = (mood) => {
     props.addMood(mood);
     currentTile.mood = mood;
-    _showMoodModal(false);
     props.updateBoard(board);
+  }
+  const _completedPosMood = (mood) => {
+    console.log('_completedPosMood')
+    _showMoodModal(0);
+    _addMood(mood.mood);
+  }
+
+  const _chooseMood = (mood) => {
+    _setMoodChoice(mood);
+    if (mood.happinessScore > 0) {
+      _showMoodModal(2);
+    } else {
+      _showMoodModal(0);
+      _addMood(mood.mood);
+    }
   }
 
   const MoodAlert = () => {
     return <ModalAlert animationType={"slide"} transparent={false}
-      visible={moodModal} onRequestClose={() => _showMoodModal(false)}>
+      visible={moodModal==1} onRequestClose={() => _showMoodModal(0)}>
       <MoodChoices _chooseMood={_chooseMood} />
+    </ModalAlert>
+  }
+
+  const PosMoodAlert = () => {
+    return <ModalAlert animationType={"slide"} transparent={false}
+      visible={moodModal==2} onRequestClose={() => _showMoodModal(0)}>
+      <PosMoodChoice _completedPosMood={_completedPosMood}  mood={moodChoice}/>
     </ModalAlert>
   }
 
@@ -63,6 +86,7 @@ const Board = (props) => {
   return (
     <View>
       <MoodAlert />
+      <PosMoodAlert />
       <Grid />
     </View>
   );

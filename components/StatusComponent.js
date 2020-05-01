@@ -32,7 +32,7 @@ const Status = (props) => {
                     <Text style={{ fontWeight: 'bold' }}>Your mood score:</Text> {yourMoodScore}
                 </Text>
                 <Text style={[styles.text, { fontStyle: 'italic' }]}>
-                    [ <Text style={{ fontWeight: 'bold' }}>Worldwide : </Text> 10 ]
+                    [ <Text style={{ fontWeight: 'bold' }}>Worldwide : </Text> ? ]
                 </Text>
             </View>
         );
@@ -65,11 +65,11 @@ const Status = (props) => {
     const worldElements = (
         <View style={styles.row}>
             <Text style={[styles.text, { fontStyle: 'italic' }]}> [ <Text style={{ fontWeight: 'bold' }}>Worldwide:</Text>
-                {` `}<FontistoIcon name='earth' />  25%
-                {` `}<FontAwesome5Icon name='water' />  25%
-                {` `}<FontistoIcon name='fire' />  25%
-                {` `}<FontistoIcon name='meteor' />  25%
-                {` `}<FontistoIcon name='atom' />  25% ]
+                {` `}<FontistoIcon name='earth' />  ?%
+                {` `}<FontAwesome5Icon name='water' />  ?%
+                {` `}<FontistoIcon name='fire' />  ?%
+                {` `}<FontistoIcon name='meteor' />  ?%
+                {` `}<FontistoIcon name='atom' />  ?% ]
             </Text>
         </View>);
 

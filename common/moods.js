@@ -21,7 +21,8 @@ export const MOODS = new Map([
         icon: 'emoticon-outline',
         element: EARTH,
         happinessScore: 1,
-        color: '#2089dc'
+        color: '#2089dc',
+        description: 'Think of an event that made you happy.'
     }],
     [LAZY, {
         mood: LAZY,
@@ -35,7 +36,8 @@ export const MOODS = new Map([
         icon: 'account-multiple-plus',
         element: WATER,
         happinessScore: 1,
-        color: '#2089dc'
+        color: '#2089dc',
+        description: "Take a moment to share love. Think of someone whom you want to share love. Share the love to whom you don't share usually."
     }],
     [SAD, {
         mood: SAD,
@@ -49,7 +51,8 @@ export const MOODS = new Map([
         icon: 'school',
         element: FIRE,
         happinessScore: 1,
-        color: '#2089dc'
+        color: '#2089dc',
+        description: 'Alertness improves when the mind is quiet. Take a moment to do some breathings, slow deep breath-ins, alternate nostril breathing. '
     }],
     [ANGER, {
         mood: ANGER,
@@ -63,7 +66,8 @@ export const MOODS = new Map([
         icon: 'artist-outline',
         element: AIR,
         happinessScore: 1,
-        color: '#2089dc'
+        color: '#2089dc',
+        description: 'Take a moment to do something creative. Draw, sing, dance or some exercise. Your choice. Be creative.'
     }],
     [RUNAWAY, {
         mood: RUNAWAY,
@@ -77,7 +81,8 @@ export const MOODS = new Map([
         icon: 'spa-outline',
         element: ETHER,
         happinessScore: 1,
-        color: '#2089dc'
+        color: '#2089dc',
+        description: 'Take a moment to relax your mind, your body. Take deep breath-in and close your eyes. In this moment you do nothing, have nothing, you are nothing.'
     }],
     [FEAR, {
         mood: FEAR,

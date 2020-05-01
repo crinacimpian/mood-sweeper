@@ -26,7 +26,7 @@ const Controls = ({ newBoard }) => {
                 {` `}<FontistoIcon name='fire' />  fire,{` 
                  `}<FontistoIcon name='meteor' />  air and
                 {` `}<FontistoIcon name='atom' />  ether
-                {`.
+                {`. And so the universe.
                 The universe is just an expression of the Self.
                 There is nothing to control.
                 All it's happening in the Self, by the Self, for the Self.
