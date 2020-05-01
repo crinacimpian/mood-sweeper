@@ -12,6 +12,7 @@ export default class Board {
 	#totalTiles;
 	#flipedTiles;
 	#flippedBombs;
+	#flippedNonBombs;
 
 	constructor(width, height) {
 		this.#width = width;
@@ -20,6 +21,7 @@ export default class Board {
 		this.#totalTiles = width * height;
 		this.#flipedTiles = 0;
 		this.#flippedBombs = 0;
+		this.#flippedNonBombs = 0;
 		this.#bombs = 0;
 		this.#state = INCOMPLETE;
 	}
@@ -39,7 +41,9 @@ export default class Board {
 	get content() {
 		return this.#matrix;
 	}
-
+	get openedNonBombs() {
+		return this.#flippedNonBombs;
+	}
 	isComplete() {
 		return this.#flippedBombs == this.#bombs;
 	}
@@ -90,6 +94,7 @@ export default class Board {
 					this.#flippedBombs++;
 					throw new GameLostError();
 				case NEUTRAL:
+					this.#flippedNonBombs++;
 					this.explode(x, y - 1);
 					this.explode(x, y + 1);
 					this.explode(x - 1, y);
@@ -99,7 +104,7 @@ export default class Board {
 					this.explode(x + 1, y - 1);
 					this.explode(x - 1, y + 1);
 					return;
-				default:
+				default: // NUMBER
 					return;
 			}
 		} catch (e) {

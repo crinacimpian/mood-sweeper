@@ -7,6 +7,7 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { connect } from 'react-redux';
 
 import { newBoard, resetMoods } from '../redux/actions';
+import {DEFAULT_WIDTH, DEFAULT_HEIGHT} from '../common/state';
 
 
 const Controls = ({ newBoard }) => {
@@ -32,7 +33,7 @@ const Controls = ({ newBoard }) => {
                     `}</Text>
             </Text>
             <Button buttonStyle={styles.button} type="solid"
-                onPress={() => { newBoard(width, height); resetMoods(); }}
+                onPress={() => { newBoard(DEFAULT_WIDTH, DEFAULT_HEIGHT); resetMoods(); }}
                 title="Witness Again" titleStyle={styles.buttonTitle}
                 icon={<Icon name='spa' size={20} color="white" />}
             />
