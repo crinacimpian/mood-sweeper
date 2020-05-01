@@ -31,7 +31,7 @@ const Status = (props) => {
                 <Text style={styles.text}>
                     <Text style={{ fontWeight: 'bold' }}>Your mood score:</Text> {yourMoodScore}
                 </Text>
-                <Text style={[styles.text,{fontStyle:'italic'}]}>
+                <Text style={[styles.text, { fontStyle: 'italic' }]}>
                     [ <Text style={{ fontWeight: 'bold' }}>Worldwide : </Text> 10 ]
                 </Text>
             </View>
@@ -53,29 +53,31 @@ const Status = (props) => {
         return (
             <View style={styles.row}>
                 <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Your elements:</Text>
-                    <FontistoIcon name='earth' />  {elemPercentage(yourElements[EARTH])}%
-                    <FontAwesome5Icon name='water' /> {elemPercentage(yourElements[WATER])}%
-                    <FontistoIcon name='fire' />  {elemPercentage(yourElements[FIRE])}%
-                    <FontistoIcon name='meteor' />  {elemPercentage(yourElements[AIR])}%
-                    <FontistoIcon name='atom' />  {elemPercentage(yourElements[ETHER])}%
+                {` `}<FontistoIcon name='earth' />  {elemPercentage(yourElements[EARTH])}%
+                {` `}<FontAwesome5Icon name='water' /> {elemPercentage(yourElements[WATER])}%
+                {` `}<FontistoIcon name='fire' />  {elemPercentage(yourElements[FIRE])}%
+                {` `}<FontistoIcon name='meteor' />  {elemPercentage(yourElements[AIR])}%
+                {` `}<FontistoIcon name='atom' />  {elemPercentage(yourElements[ETHER])}%
                 </Text>
             </View>
         );
     }
     const worldElements = (
         <View style={styles.row}>
-            <Text style={[styles.text,{fontStyle:'italic'}]}> [ <Text style={{ fontWeight: 'bold' }}>Worldwide:</Text>
-                <FontistoIcon name='earth' />  25%
-                <FontAwesome5Icon name='water' />  25%
-                <FontistoIcon name='fire' />  25%
-                <FontistoIcon name='meteor' />  25%
-                <FontistoIcon name='atom' />  25% ]
+            <Text style={[styles.text, { fontStyle: 'italic' }]}> [ <Text style={{ fontWeight: 'bold' }}>Worldwide:</Text>
+                {` `}<FontistoIcon name='earth' />  25%
+                {` `}<FontAwesome5Icon name='water' />  25%
+                {` `}<FontistoIcon name='fire' />  25%
+                {` `}<FontistoIcon name='meteor' />  25%
+                {` `}<FontistoIcon name='atom' />  25% ]
             </Text>
         </View>);
+
     return (
         <View style={styles.container}>
             {remainingTiles()}
             {moodScore()}
+
             {dominantElement()}
             {worldElements}
         </View>
@@ -84,13 +86,13 @@ const Status = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: "center",
+        justifyContent: "flex-start",
         flex: 1,
         flexDirection: 'column',
         paddingTop: 20
     },
     row: {
-        flex: 0.1,
+        flex: 0.2,
         flexDirection: 'row',
         justifyContent: "flex-start"
     },

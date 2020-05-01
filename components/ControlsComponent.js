@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Input, Button } from 'react-native-elements';
+import { View, StyleSheet, Text, Linking } from 'react-native';
+import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { connect } from 'react-redux';
 
@@ -14,69 +14,54 @@ const Controls = ({ newBoard }) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.row}>
-                <View style={styles.column}></View>
-                <View style={styles.column}>
-                    <Input
-                        placeholder="width"
-                        leftIcon={{ type: 'font-awesome', name: 'arrows-h' }}
-                        onChangeText={(width) => setWidth(width)}
-                        containerStyle={styles.input}
-                        inputStyle={styles.inputText}
-                        value={width.toString()}
-                    />
-                </View>
-            </View>
-            <View style={styles.row}>
-                <View style={styles.column}>
-                    <Input
-                        placeholder="height"
-                        leftIcon={{ type: 'font-awesome', name: 'arrows-v' }}
-                        onChangeText={(height) => setHeight(height)}
-                        containerStyle={styles.input}
-                        inputStyle={styles.inputText}
-                        value={height.toString()}
-                    />
-                </View>
-                <View style={styles.column}>
-                    <Button buttonStyle={styles.button} type="solid"
-                        onPress={() => {newBoard(width, height); resetMoods();}}
-                        title="New Adventure"
-                        icon={<Icon name='spa' size={20} color="white" />}
-                    />
-                </View>
-            </View>
+            <Text style={styles.text}>
+                {`
+
+                This body is part of earth, water, fire, air and ether.
+                The universe is just an expression of the Self.
+                There is nothing to control.
+                All it's happening in the Self, by the Self, for the Self.
+                Right now you are FREE!
+                `}
+                <Text style={styles.textSmall}
+                    onPress={() => Linking.openURL('https://www.artofliving.org/us-en/wisdom/ashtavakra-gita')}>
+                    >from Sri Sri Ravi Shankar's commentary on Ashtavakra Gita{`
+                    `}</Text>
+            </Text>
+            <Button buttonStyle={styles.button} type="solid"
+                onPress={() => { newBoard(width, height); resetMoods(); }}
+                title="Witness Again" titleStyle={styles.buttonTitle}
+                icon={<Icon name='spa' size={20} color="white" />}
+            />
         </View >
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: "center",
+        justifyContent: "flex-end",
         flex: 1,
         flexDirection: 'column'
     },
-    row: {
-        flex: 1,
-        flexDirection: 'row'
-    },
-    column: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-        marginRight: 10
-    },
-    input: {
-        width: 100,
-        marginRight: 10,
-        alignContent:'center'
-    },
-    inputText: {
-        fontSize: 12
-    },
     button: {
         alignContent: 'center',
-        width: 200
+        width: 150
+    },
+    buttonTitle: {
+        fontSize: 14,
+        fontWeight: 'bold'
+    },
+    text: {
+        fontSize: 12,
+        color: 'black',
+        fontSize: 14,
+        fontStyle: 'italic'
+    },
+    textSmall: {
+        fontSize: 10,
+        color: 'black',
+        fontStyle: 'italic',
+        alignSelf: 'flex-end',
     }
 });
 
