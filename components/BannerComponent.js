@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         fontSize: 10,
         color: 'black',
         fontStyle: 'italic',
-        alignSelf: 'flex-end'
+        alignSelf: 'flex-end',
     }
 });
 

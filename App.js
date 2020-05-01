@@ -18,7 +18,7 @@ export default function App() {
         <SafeAreaProvider>
         <Header
             leftComponent={{ icon: 'menu', color: '#fff' }}
-            centerComponent={{ text: 'Mood Sweeper', style: { color: '#fff' } }}
+            centerComponent={{ text: 'Mood Sweeper', style: { color: '#fff', fontWeight: 'bold' } }}
             rightComponent={{ icon: 'spa', color: '#fff', icontType: 'material-community' }}
             />
           <SafeAreaView style={styles.container}>

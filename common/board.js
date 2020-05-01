@@ -11,14 +11,15 @@ export default class Board {
 	#height;
 	#totalTiles;
 	#flipedTiles;
+	#flippedBombs;
 
 	constructor(width, height) {
 		this.#width = width;
 		this.#height = height;
 		this.#matrix = Array.from({ length: height }, (_, y) => Array.from({ length: width }, (_, x) => new Tile(x, y, NEUTRAL)));
-		console.log(this.#matrix)
 		this.#totalTiles = width * height;
 		this.#flipedTiles = 0;
+		this.#flippedBombs = 0;
 		this.#bombs = 0;
 		this.#state = INCOMPLETE;
 	}
@@ -40,7 +41,7 @@ export default class Board {
 	}
 
 	isComplete() {
-		return this.#state !== INCOMPLETE;
+		return this.#flippedBombs == this.#bombs;
 	}
 
 	setBomb(x, y) {
@@ -86,6 +87,7 @@ export default class Board {
 			switch (tile.state) {
 				case BOMB:
 					this.#state = FAIL;
+					this.#flippedBombs++;
 					throw new GameLostError();
 				case NEUTRAL:
 					this.explode(x, y - 1);

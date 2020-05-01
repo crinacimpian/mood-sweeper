@@ -5780,6 +5780,13 @@ react-native-gesture-handler@~1.6.0:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-modal-alert@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-modal-alert/-/react-native-modal-alert-0.0.6.tgz#988b833b83c7a75e0aa0a6b02dee56dd2384b14a"
+  integrity sha512-0zEg4w5XOqVLQiUcDvj+oNmQh1HmOEsFIILZmTTg/58ZjvfEV748/19gyZTkbrAxeE3XFcJRpd/IkERWfNd0zw==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-ratings@^6.3.0:
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-6.5.0.tgz#a1606ccba3c5b54eec8e6cfa4765a45cf0e4ab8d"

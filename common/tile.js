@@ -1,15 +1,19 @@
+import {HAPPY} from './moods';
+
 export default class Tile {
     #x;
     #y;
     #state;
     #open;
     #number;
+    #mood;
     constructor(x, y, state) {
         this.#x = x;
         this.#y = y;
         this.#state = state;
         this.#open = false;
         this.#number = 0;
+        this.#mood = null;
     }
 
     get x() {
@@ -36,5 +40,10 @@ export default class Tile {
     set number(newNumber) {
         this.#number = newNumber;
     }
-
+    get mood() {
+        return this.#mood;
+    }
+    set mood(newMood) {
+        this.#mood = newMood;
+    }
 }

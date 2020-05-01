@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Input, Button } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { connect } from 'react-redux';
 
 import { DEFAULT_WIDTH, DEFAULT_HEIGHT } from '../common/state';
-import { newBoard } from '../redux/actions';
+import { newBoard, resetMoods } from '../redux/actions';
 
 
 const Controls = ({ newBoard }) => {
@@ -40,9 +40,9 @@ const Controls = ({ newBoard }) => {
                 </View>
                 <View style={styles.column}>
                     <Button buttonStyle={styles.button} type="solid"
-                        onPress={() => newBoard(width, height)}
-                        title="New Challenge"
-                        icon={<Icon name='play-circle-o' size={25} color="white" />}
+                        onPress={() => {newBoard(width, height); resetMoods();}}
+                        title="New Adventure"
+                        icon={<Icon name='spa' size={20} color="white" />}
                     />
                 </View>
             </View>
@@ -75,8 +75,9 @@ const styles = StyleSheet.create({
         fontSize: 12
     },
     button: {
-        alignContent: 'center'
+        alignContent: 'center',
+        width: 200
     }
 });
 
-export default connect(null, { newBoard })(Controls);
+export default connect(null, { newBoard, resetMoods })(Controls);
