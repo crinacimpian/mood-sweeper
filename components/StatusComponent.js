@@ -86,13 +86,14 @@ const Status = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: "flex-start",
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         flex: 1,
         flexDirection: 'column',
-        paddingTop: 20
+        paddingTop: 10
     },
     row: {
-        flex: 0.2,
+        flex: 0.15,
         flexDirection: 'row',
         justifyContent: "flex-start"
     },

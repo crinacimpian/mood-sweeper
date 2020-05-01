@@ -6,29 +6,42 @@ import { ConfigureStore } from './redux/configureStore';
 import { PersistGate } from 'redux-persist/es/integration/react'
 import { Header } from 'react-native-elements';
 
-import Game from './components/GameComponent';
+import Main from './components/MainComponent';
 
 const { persistor, store } = ConfigureStore();
 
-export default function App() {
-  return (
-    <Provider store={store}>
-      <PersistGate
-        persistor={persistor}>
-        <SafeAreaProvider>
-        <Header
-            leftComponent={{ icon: 'menu', color: '#fff' }}
-            centerComponent={{ text: 'Mood Sweeper', style: { color: '#fff', fontWeight: 'bold' } }}
-            rightComponent={{ icon: 'spa', color: '#fff', icontType: 'material-community' }}
-            />
-          <SafeAreaView style={styles.container}>
-            <Game />
-          </SafeAreaView >
-        </SafeAreaProvider>
-      </PersistGate>
-    </Provider>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <PersistGate
+          persistor={persistor}>
+          <Main />
+        </PersistGate>
+      </Provider>
+    );
+  }
 }
+
+// export default function App() {
+//   return (
+//     <Provider store={store}>
+//       <PersistGate
+//         persistor={persistor}>
+//         <SafeAreaProvider>
+//         {/* <Header
+//             rightComponent={{ icon: 'file-text', type:'feather', color: '#fff' }}
+//             centerComponent={{ text: 'Mood Sweeper', style: { color: '#fff', fontWeight: 'bold' } }}
+//             leftComponent={{ icon: 'spa', color: '#fff', icontType: 'material-community' }}
+//             /> */}
+//           <SafeAreaView style={styles.container}>
+//             <Main />
+//           </SafeAreaView >
+//         </SafeAreaProvider>
+//       </PersistGate>
+//     </Provider>
+//   );
+// }
 
 const styles = StyleSheet.create({
   container: {
