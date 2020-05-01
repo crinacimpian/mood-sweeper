@@ -13,7 +13,7 @@ const config = {
   }
 
 export const ConfigureStore = () => {
-    // storage.removeItem('persist:root');
+    storage.removeItem('persist:root');
     const store = createStore(
         persistCombineReducers(config, {
             board: BoardReducer,
