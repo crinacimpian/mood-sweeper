@@ -12,7 +12,7 @@ const Description = () => {
     <ScrollView>
       <Animatable.View animation="fadeInDown" duration={1000} delay={500}>
         <Card
-          title='Mood Sweeper Game Description' style={styles.titleText}>
+          title='Mood Sweeper - Game Description' style={styles.titleText}>
           <FontAwesome5Icon name='spa' color='black' size='20' />
           <Text style={styles.descriptionText}>{`
           This game is a twist of the MineSweeper game. 
