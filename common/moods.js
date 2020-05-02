@@ -52,7 +52,7 @@ export const MOODS = new Map([
         element: FIRE,
         happinessScore: 1,
         color: '#2089dc',
-        description: 'Alertness improves when the mind is quiet. Take a moment to do some breathings, slow deep breath-ins, alternate nostril breathing. '
+        description: 'Alertness improves when the mind is quiet. Take a moment to do some breath-ins, slow deep breath-ins, alternate nostril breathing. '
     }],
     [ANGER, {
         mood: ANGER,

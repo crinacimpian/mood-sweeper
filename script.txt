@@ -1,0 +1,24 @@
+The MoodSweeper is a twist of the MineSweeper. The bombs are replaced with moods.
+
+Click one of the cloud tiles.
+These are non mood tiles. Each scores 1 point.
+The mood corresponds to 5 elements...
+The non mood tile triggers the fire element in you. So the Fire element increases.
+Ideally the elements should be balanaced.
+
+When you click on a mood tile, choose a positive or a negative mood.
+See to which element the mood corresponds.
+
+I'll choose a negative mood.
+It reduces the mood score by 10 points.
+
+Let's click on another mood tile and choose a positive mood.
+Take a moment to be in the positive mood. Follow the instructions from here.
+The mode score will increase by 10 points.
+
+So, that's it.
+
+The rules are here, in the Description.
+
+Now it's the moment to enjoy the Experience!
+What's your mood and how are your elements balanced?

@@ -12,7 +12,7 @@ const Description = () => {
     <ScrollView>
       <Animatable.View animation="fadeInDown" duration={1000} delay={500}>
         <Card
-          title='Mood Sweeper - Game Description' style={styles.titleText}>
+          title='Mood Sweeper - Game Rules' style={styles.titleText}>
           <FontAwesome5Icon name='spa' color='black' size='20' />
           <Text style={styles.descriptionText}>{`
           This game is a twist of the MineSweeper game. 
@@ -40,7 +40,8 @@ const Description = () => {
           moods and a weight of -10 for negative moods.
           
           When you choose a positive mood, an action is required
-          to help that mood. Choose it and you'll find out.
+          to help that mood. Take a moment to be in that mood.
+          Choose it and you'll find out.
           
           Enjoy the experience!
           `} </Text>

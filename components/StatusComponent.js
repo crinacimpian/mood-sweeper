@@ -21,7 +21,7 @@ const Status = (props) => {
     const remainingTiles = () => {
         if (!board.isComplete())
             return (<View style={styles.row}><Text style={styles.text}>
-                <Text style={{ fontWeight: 'bold' }}>Choices: </Text> {board.remainingTiles}</Text></View>);
+                <Text style={{ fontWeight: 'bold' }}>Remaining cloud tiles: </Text> {board.remainingTiles}</Text></View>);
     }
     const moodScore = () => {
         const yourMoodScore = myMoods.map(mood => MOODS.get(mood).happinessScore).reduce(function (a, b) {

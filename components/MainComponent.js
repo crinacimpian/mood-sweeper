@@ -88,23 +88,23 @@ function CustomDrawerContent(props) {
 
 const MainNavigator = () => {
   return (
-    <Drawer.Navigator drawerStyle={{ backgroundColor: 'white' }} drawerContent={props => <CustomDrawerContent {...props} />}>
+    <Drawer.Navigator drawerStyle={{ backgroundColor: 'white', width: 180 }} drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="GameNavigator" component={GameNavigator} options={{
         title: 'Game',
-        drawerIcon: ({ tintColor }) => <FontAwesome5Icon name="spa" size={24} color={tintColor} />
+        drawerIcon: ({ tintColor }) => <FontAwesome5Icon name="spa" size={15} color={tintColor} />
       }}
       />
       <Drawer.Screen name="DescriptionNavigator" component={DescriptionNavigator} options={{
         title: 'Description',
-        drawerIcon: ({ tintColor }) => <Icon name='file-text' type='feather' size={24} color={tintColor} />
+        drawerIcon: ({ tintColor }) => <Icon name='file-text' type='feather' size={15} color={tintColor} />
       }} />
       <Drawer.Screen name="AboutNavigator" component={AboutNavigator} options={{
         title: 'About Us',
-        drawerIcon: ({ tintColor }) => <Icon name="info-circle" size={24} color={tintColor} />
+        drawerIcon: ({ tintColor }) => <Icon name="info-circle" size={15} color={tintColor} />
       }} />
       <Drawer.Screen name="ContactNavigator" component={ContactNavigator} options={{
         title: 'Contact',
-        drawerIcon: ({ tintColor }) => <Icon name="address-card" size={24} color={tintColor} />
+        drawerIcon: ({ tintColor }) => <Icon name="address-card" size={15} color={tintColor} />
       }} />
     </Drawer.Navigator>
   );
