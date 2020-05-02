@@ -11,7 +11,7 @@ const About = () => {
                     title='Mood Sweeper'>
                     <Text
                     onPress={() => Linking.openURL('https://www.artofliving.org/us-en/wisdom/ashtavakra-gita')}>
-                    The main inspiration came from Sri Sri Ravi Shankar's commentary on Ashtavakra Gita.</Text>
+                    Inspired by the Sri Sri Ravi Shankar's commentary on Ashtavakra Gita.</Text>
                 </Card>
             </Animatable.View>
         </ScrollView>
