@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 12,
-        color: 'black',
+        color: '#1c2833',
         fontStyle: 'normal'
     }
 });

@@ -45,7 +45,10 @@ export default class Board {
 		return this.#flippedNonBombs;
 	}
 	isComplete() {
-		return this.#flippedBombs == this.#bombs;
+		console.log('total:' + this.#totalTiles)
+		console.log('flippedNonBombs:' + this.#flippedNonBombs)
+		console.log('bombs:' + this.#bombs)
+		return (this.#totalTiles - this.#flippedNonBombs) == this.#bombs;
 	}
 
 	setBomb(x, y) {
@@ -105,6 +108,7 @@ export default class Board {
 					this.explode(x - 1, y + 1);
 					return;
 				default: // NUMBER
+					this.#flippedNonBombs++;
 					return;
 			}
 		} catch (e) {

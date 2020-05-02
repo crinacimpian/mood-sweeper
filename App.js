@@ -23,26 +23,6 @@ export default class App extends React.Component {
   }
 }
 
-// export default function App() {
-//   return (
-//     <Provider store={store}>
-//       <PersistGate
-//         persistor={persistor}>
-//         <SafeAreaProvider>
-//         {/* <Header
-//             rightComponent={{ icon: 'file-text', type:'feather', color: '#fff' }}
-//             centerComponent={{ text: 'Mood Sweeper', style: { color: '#fff', fontWeight: 'bold' } }}
-//             leftComponent={{ icon: 'spa', color: '#fff', icontType: 'material-community' }}
-//             /> */}
-//           <SafeAreaView style={styles.container}>
-//             <Main />
-//           </SafeAreaView >
-//         </SafeAreaProvider>
-//       </PersistGate>
-//     </Provider>
-//   );
-// }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

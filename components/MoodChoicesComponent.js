@@ -10,7 +10,7 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { MOODS, EARTH, WATER, AIR, FIRE, ETHER } from '../common/moods';
 
 const MoodChoices = (props) => {
-  const MoodButtonsPos = () => Array.from(MOODS.values()).filter(mood => mood.happinessScore > 0).map((mood) =>
+  const MoodButtonsPos = () => Array.from(MOODS.values()).filter(mood => mood.happinessScore == 1).map((mood) =>
     <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
       <Button type="clear"
         onPress={() => props._chooseMood(mood)}
@@ -20,7 +20,7 @@ const MoodChoices = (props) => {
       />
     </View>
   );
-  const MoodButtonsNeg = () => Array.from(MOODS.values()).filter(mood => mood.happinessScore < 0).map((mood) =>
+  const MoodButtonsNeg = () => Array.from(MOODS.values()).filter(mood => mood.happinessScore == -1).map((mood) =>
     <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
       <Button type="clear"
         onPress={() => props._chooseMood(mood)}
@@ -38,7 +38,7 @@ const MoodChoices = (props) => {
       case ETHER: return <FontistoIcon name='atom' />
     }
   }
-  const MoodElements = () => Array.from(MOODS.values()).filter(mood => mood.happinessScore > 0).map((mood) =>
+  const MoodElements = () => Array.from(MOODS.values()).filter(mood => mood.happinessScore == 1).map((mood) =>
     <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
       {_elementIcon(mood)}
     </View>

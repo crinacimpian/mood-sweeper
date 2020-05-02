@@ -8,6 +8,7 @@ export const CREATIVE = 'Creative';
 export const RUNAWAY = 'Run away';
 export const CONTENT = 'Content';
 export const FEAR = 'Fear';
+export const BLISS = 'Bliss';
 
 export const WATER = 'water';
 export const AIR = 'air';
@@ -90,6 +91,13 @@ export const MOODS = new Map([
         element: ETHER,
         happinessScore: -1,
         color: '#f31313'
+    }],
+    [BLISS, {
+        mood: BLISS,
+        icon: 'spa',
+        element: ETHER,
+        happinessScore: 2,
+        color: '#0cbdee'
     }]
 ]);
 

@@ -39,7 +39,7 @@ const PosMoodChoice = (props) => {
       <View style={styles.modal}>
         <View style={styles.title}>
           <View style={{ flexDirection: 'column', flex: 0.3, marginLeft: 20 }}>
-            <Icon name={mood.icon} color='black' size='20' />
+            <Icon name={mood.icon} color='#1c2833' size='20' />
           </View>
           <View style={{ flexDirection: 'column', flex: 1 }}>
             <Text style={styles.titleText}>{mood.mood}</Text>

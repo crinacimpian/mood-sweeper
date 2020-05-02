@@ -71,10 +71,11 @@ const Board = (props) => {
     </ModalAlert>
   }
 
+  const gameComplete = board.isComplete();
   const Grid = () => {
     let matrixComponent = Array.from({ length: height }, (_, y) => {
       let row = Array.from({ length: width }, (_, x) => {
-        return <Tile tile={matrix[y][x]} _openTile={_openTile} reveal={board.isComplete()} />
+        return <Tile tile={matrix[y][x]} _openTile={_openTile} reveal={gameComplete} addMood={props.addMood}/>
       });
       return (
         <View style={styles.row}>{row}</View>

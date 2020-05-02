@@ -4,7 +4,7 @@ import { Button, Badge } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { NEUTRAL, NUMBER, BOMB } from '../common/state';
-import { MOODS } from '../common/moods';
+import { MOODS, BLISS } from '../common/moods';
 
 export default function TileComponent(props) {
     const tile = props.tile;
@@ -14,13 +14,12 @@ export default function TileComponent(props) {
         if (tile.open || props.reveal)
             switch (tile.state) {
                 case BOMB:
-                    if (tile.mood) {
-                        let mood = MOODS.get(tile.mood);
-                        return { fa: mood.icon, color: mood.color, size: 20, badgeNumber: 0 };
+                    if (!tile.mood) {
+                        tile.mood = BLISS;
+                        props.addMood(BLISS);
                     }
-                    else {
-                        return { fa: "cloud-outline", color: "#0cbdee", size: 10, badgeNumber: 0 };
-                    }
+                    let mood = MOODS.get(tile.mood);
+                    return { fa: mood.icon, color: mood.color, size: 20, badgeNumber: 0 };
                 case NUMBER:
                     return { fa: "flower-poppy", color: "#f3d113", size: 15, badgeNumber: tile.number };
                 case NEUTRAL:
@@ -33,7 +32,7 @@ export default function TileComponent(props) {
         if (icon().badgeNumber > 0)
             return <Badge value={icon().badgeNumber}
                 badgeStyle={{ width: 5, height: 10, backgroundColor: 'transparent' }}
-                textStyle={{ fontSize: 5, color: 'black' }}
+                textStyle={{ fontSize: 5, color: '#1c2833' }}
                 containerStyle={{ position: 'absolute', top: -1, right: -1 }} />
         return <View></View>;
     }

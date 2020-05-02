@@ -42,7 +42,7 @@ const HeaderNavigatorOptions = (props) => {
 const GameNavigator = () => {
   return (
     <Stack.Navigator screenOptions={headerStyle}>
-      <Stack.Screen name="Game" component={Game} options={HeaderNavigatorOptions} />
+      <Stack.Screen name="MoodSweeper" component={Game} options={HeaderNavigatorOptions} />
     </Stack.Navigator>
   );
 }
@@ -88,7 +88,7 @@ function CustomDrawerContent(props) {
 
 const MainNavigator = () => {
   return (
-    <Drawer.Navigator drawerStyle={{ backgroundColor: 'white', width: 180 }} drawerContent={props => <CustomDrawerContent {...props} />}>
+    <Drawer.Navigator drawerStyle={{ backgroundColor: 'white' }} drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="GameNavigator" component={GameNavigator} options={{
         title: 'Game',
         drawerIcon: ({ tintColor }) => <FontAwesome5Icon name="spa" size={15} color={tintColor} />

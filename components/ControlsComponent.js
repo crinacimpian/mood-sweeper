@@ -14,23 +14,21 @@ const Controls = ({ newBoard }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>
-                {`
-                This body is part of `}
+                This body is part of {`\n`}
                 <FontistoIcon name='earth' />  earth,
                 {` `}<FontAwesome5Icon name='water' />  water,
-                {` `}<FontistoIcon name='fire' />  fire,{` 
-                 `}<FontistoIcon name='meteor' />  air and
-                {` `}<FontistoIcon name='atom' />  ether
-                {`. And so the universe.
-                The universe is just an expression of the Self.
-                There is nothing to control.
-                All it's happening in the Self, by the Self, for the Self.
-                Right now you are FREE!
-                `}
+                {` `}<FontistoIcon name='fire' />  fire,
+                {` `}<FontistoIcon name='meteor' />  air and
+                {` `}<FontistoIcon name='atom' />  ether.
+                {`\n`}And so the universe.{`\n`}
+                The universe is just an expression of the Self.{`\n`}
+                There is nothing to control.{`\n`}
+                All it's happening in the Self, by the Self, for the Self.{`\n`}
+                Right now you are FREE!{`\n`}
                 <Text style={styles.textSmall}
                     onPress={() => Linking.openURL('https://www.artofliving.org/us-en/wisdom/ashtavakra-gita')}>
-                    >from Sri Sri Ravi Shankar's commentary on Ashtavakra Gita{`
-                    `}</Text>
+                    >from Sri Sri Ravi Shankar's commentary on Ashtavakra Gita</Text>
+                    {`\n`}
             </Text>
             <Button buttonStyle={styles.button} type="solid"
                 onPress={() => { newBoard(DEFAULT_WIDTH, DEFAULT_HEIGHT); resetMoods(); }}
@@ -46,7 +44,8 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
+        marginLeft: 20
     },
     button: {
         alignContent: 'center',
@@ -54,19 +53,19 @@ const styles = StyleSheet.create({
     },
     buttonTitle: {
         fontSize: 14,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        padding: 5
     },
     text: {
         fontSize: 12,
-        color: 'black',
+        color: '#1c2833',
         fontSize: 14,
         fontStyle: 'italic'
     },
     textSmall: {
         fontSize: 10,
-        color: 'black',
-        fontStyle: 'italic',
-        alignSelf: 'flex-end',
+        color: '#1c2833',
+        fontStyle: 'italic'
     }
 });
 

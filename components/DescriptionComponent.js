@@ -13,38 +13,38 @@ const Description = () => {
       <Animatable.View animation="fadeInDown" duration={1000} delay={500}>
         <Card
           title='Mood Sweeper - Game Rules' style={styles.titleText}>
-          <FontAwesome5Icon name='spa' color='black' size='20' />
-          <Text style={styles.descriptionText}>{`
+          <FontAwesome5Icon name='spa' color='#1c2833' size='20' />
+          <Text style={styles.descriptionText}>
           This game is a twist of the MineSweeper game. 
-
-          Today we deal with our emotions, moods.
-          When a mood arises, the mood corresponds to one of 
-          the five elements:
-          `}
+          Bombs are replaced with the moods. 
+          {`\n`}{`\n`}
+          Today we deal with emotions, moods.
+          When a mood arises, the mood raises one of 
+          the five elements:{`\n`}
         {`  `}<FontistoIcon name='earth' />  earth,
         {` `}<FontAwesome5Icon name='water' />  water,
         {` `}<FontistoIcon name='fire' />  fire,
         {` `}<FontistoIcon name='meteor' />  air and
-        {` `}<FontistoIcon name='atom' />  ether
-          {`
-          And reverse, when one of the five elements is dominant, 
-          it causes restless in the corresponding mood.
-          
+        {` `}<FontistoIcon name='atom' />  ether{`\n`}
+          Conversely, when one of the five elements is dominant, 
+          causes anxiety in the appropriate mood.
+          {`\n`}{`\n`}
           Your score is calculated based on your choices. 
-          Each non-mood tile have a weight of 1.
-          It corresponds with the `}
-          <FontistoIcon name='fire' /> 
-          {` 'Fire' element
+          Each non-mood tile (leaves and flowers) weighs 1 point.
+          It is associated with
+          {` `}<FontistoIcon name='fire' /> {` `}
+          'Fire' element
           (Alertness or Feverishness).
-          The actual moods have a weight of 10 for positive
-          moods and a weight of -10 for negative moods.
-          
-          When you choose a positive mood, an action is required
+          The actual mood weighs 10 for the positive moods
+          and -10 for the negative moods.
+          {`\n`}{`\n`}
+          When you choose a positive mood, action is needed
           to help that mood. Take a moment to be in that mood.
-          Choose it and you'll find out.
-          
+          Choose it and you will find out.
+          And more amazing experiences will come on the way. 
+          {`\n`}{`\n`}
           Enjoy the experience!
-          `} </Text>
+          </Text>
         </Card>
       </Animatable.View>
     </ScrollView>
@@ -58,11 +58,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'black',
+    color: '#1c2833',
   },
   descriptionText: {
     fontSize: 12,
-    color: 'black'
+    color: '#1c2833'
   }
 });
 
