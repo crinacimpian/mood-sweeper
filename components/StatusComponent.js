@@ -27,13 +27,21 @@ const Status = (props) => {
         const yourMoodScore = myMoods.map(mood => MOODS.get(mood).happinessScore).reduce(function (a, b) {
             return a + b;
         }, 0) * 10 + nonMoodsTileCounts;
+        const moodScoreStyle = (score) => {
+            if (score < 0) return { color: '#f31313' };
+            if (score < 50) return { color: '#f3d113' };
+            if (score < 100) return { color: '#5ae298' };
+            return { color: '#2089dc' };
+        }
         return (
             <View style={styles.row}>
                 <Text style={styles.text}>
-                    <Text style={{ fontWeight: 'bold' }}>Your mood score:</Text> {yourMoodScore}
+                    <Text style={{ fontWeight: 'bold' }}>Your mood score:{` `}</Text>
+                    <Text style={moodScoreStyle(yourMoodScore)}>{yourMoodScore}</Text>
                 </Text>
                 <Text style={[styles.text, { fontStyle: 'italic' }]}>
-                    [ <Text style={{ fontWeight: 'bold' }}>Worldwide : </Text> ? ]
+                    {` `}[ <Text style={{ fontWeight: 'bold' }}>Worldwide: </Text>
+                    <Text style={{ color: '#2089dc' }}>>100</Text> ]
                 </Text>
             </View>
         );
@@ -44,33 +52,34 @@ const Status = (props) => {
             if (!res[elem]) {
                 res[elem] = 0;
             }
-            res[elem]=res[elem]+10; // add a weight of 10 for the elements from mood
+            res[elem] = res[elem] + 10; // add a weight of 10 for the elements from mood
             return res;
         }, {});
-        console.log(yourElements)
-        console.log(yourElements[FIRE])
-        console.log(nonMoodsTileCounts)
         if (!yourElements[FIRE]) {
             yourElements[FIRE] = 0;
         }
         yourElements[FIRE] = yourElements[FIRE] + nonMoodsTileCounts;
-        const yourElementsTotalScore =myMoods.map(() => 1).reduce(function (a, b) {return a + b;}, 0)*10 + nonMoodsTileCounts;
-        console.log(yourElements)
-        console.log(yourElementsTotalScore)
-        console.log(nonMoodsTileCounts)
-        const elemPercentage = (elem) => {
-            if (elem) return Math.ceil(elem * 100 / yourElementsTotalScore);
-            else return 0;
-        }
+        const yourElementsTotalScore = myMoods.map(() => 1).reduce(function (a, b) { return a + b; }, 0) * 10 + nonMoodsTileCounts;
 
+        const elemText = (elem) => {
+            let elemPercentage = 0;
+            if (elem) elemPercentage = Math.ceil(elem * 100 / yourElementsTotalScore);
+            if (elemPercentage < 10) return <Text style={{ color: '#f31313' }}>{elemPercentage}%</Text>
+            if (elemPercentage < 15) return <Text style={{ color: '#f3d113' }}>{elemPercentage}%</Text>
+            if (elemPercentage < 20) return <Text style={{ color: '#5ae298' }}>{elemPercentage}%</Text>
+            if (elemPercentage < 30) return <Text style={{ color: '#2089dc' }}>{elemPercentage}%</Text>
+            if (elemPercentage < 40) return <Text style={{ color: '#5ae298' }}>{elemPercentage}%</Text>
+            if (elemPercentage < 50) return <Text style={{ color: '#f3d113' }}>{elemPercentage}%</Text>
+            return <Text style={{ color: '#f31313' }}>{elemPercentage}%</Text>
+        }
         return (
             <View style={styles.row}>
                 <Text style={styles.text}><Text style={{ fontWeight: 'bold' }}>Your elements:</Text>
-                {` `}<FontistoIcon name='earth' />  {elemPercentage(yourElements[EARTH])}%
-                {` `}<FontAwesome5Icon name='water' /> {elemPercentage(yourElements[WATER])}%
-                {` `}<FontistoIcon name='fire' />  {elemPercentage(yourElements[FIRE])}%
-                {` `}<FontistoIcon name='meteor' />  {elemPercentage(yourElements[AIR])}%
-                {` `}<FontistoIcon name='atom' />  {elemPercentage(yourElements[ETHER])}%
+                    {` `}<FontistoIcon name='earth' />  {elemText(yourElements[EARTH])}
+                    {` `}<FontAwesome5Icon name='water' /> {elemText(yourElements[WATER])}
+                    {` `}<FontistoIcon name='fire' />  {elemText(yourElements[FIRE])}
+                    {` `}<FontistoIcon name='meteor' />  {elemText(yourElements[AIR])}
+                    {` `}<FontistoIcon name='atom' />  {elemText(yourElements[ETHER])}
                 </Text>
             </View>
         );
@@ -78,11 +87,11 @@ const Status = (props) => {
     const worldElements = (
         <View style={styles.row}>
             <Text style={[styles.text, { fontStyle: 'italic' }]}> [ <Text style={{ fontWeight: 'bold' }}>Worldwide:</Text>
-                {` `}<FontistoIcon name='earth' />  25%
-                {` `}<FontAwesome5Icon name='water' />  25%
-                {` `}<FontistoIcon name='fire' />  25%
-                {` `}<FontistoIcon name='meteor' />  25%
-                {` `}<FontistoIcon name='atom' />  25% ]
+                {` `}<FontistoIcon name='earth' />  <Text style={{ color: '#2089dc' }}>25%</Text>
+                {` `}<FontAwesome5Icon name='water' />  <Text style={{ color: '#2089dc' }}>25%</Text>
+                {` `}<FontistoIcon name='fire' />  <Text style={{ color: '#2089dc' }}>25%</Text>
+                {` `}<FontistoIcon name='meteor' />  <Text style={{ color: '#2089dc' }}>25%</Text>
+                {` `}<FontistoIcon name='atom' />  <Text style={{ color: '#2089dc' }}>25%</Text> ]
             </Text>
         </View>);
 
