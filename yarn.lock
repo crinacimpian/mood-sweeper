@@ -4645,6 +4645,11 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+lodash.debounce@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
+
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
@@ -5880,6 +5885,13 @@ react-native-modal-alert@^0.0.6:
   integrity sha512-0zEg4w5XOqVLQiUcDvj+oNmQh1HmOEsFIILZmTTg/58ZjvfEV748/19gyZTkbrAxeE3XFcJRpd/IkERWfNd0zw==
   dependencies:
     prop-types "^15.7.2"
+
+react-native-particles@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-particles/-/react-native-particles-0.0.8.tgz#332a3ee1aa540c35845650fd6d7e5ff8ce6054bc"
+  integrity sha512-N24j7oFX/myRrriZRigl9XeF3rfCY1NQ9wTpaIgSgbQpDxPrVuoO2NOuTYrXSyi41jpXEg7fN64HpkI8MQXrYg==
+  dependencies:
+    lodash.debounce "^4.0.8"
 
 react-native-ratings@^6.3.0:
   version "6.5.0"

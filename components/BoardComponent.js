@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import Tile from './TileComponent';
 import MoodChoices from './MoodChoicesComponent';
 import PosMoodChoice from './PosMoodChoiceComponent';
-import { updateBoard, addMood } from '../redux/actions';
+import GameOver from './GameOverComponent';
+import { updateBoard, addMood, setGameOver } from '../redux/actions';
 import GameLostError from '../common/gamelost-error';
 
 const mapStateToProps = state => {
@@ -34,6 +35,9 @@ const Board = (props) => {
         _showMoodModal(1);
       }
     }
+    if (board.isComplete()) {
+      props.setGameOver(true);
+    }
   }
 
   const _addMood = (mood) => {
@@ -42,7 +46,6 @@ const Board = (props) => {
     props.updateBoard(board);
   }
   const _completedPosMood = (mood) => {
-    console.log('_completedPosMood')
     _showMoodModal(0);
     _addMood(mood.mood);
   }
@@ -88,6 +91,7 @@ const Board = (props) => {
     <View>
       <MoodAlert />
       <PosMoodAlert />
+      <GameOver />
       <Grid />
     </View>
   );
@@ -125,4 +129,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(mapStateToProps, { updateBoard, addMood })(Board);
+export default connect(mapStateToProps, { updateBoard, addMood, setGameOver })(Board);

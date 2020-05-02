@@ -45,9 +45,6 @@ export default class Board {
 		return this.#flippedNonBombs;
 	}
 	isComplete() {
-		console.log('total:' + this.#totalTiles)
-		console.log('flippedNonBombs:' + this.#flippedNonBombs)
-		console.log('bombs:' + this.#bombs)
 		return (this.#totalTiles - this.#flippedNonBombs) == this.#bombs;
 	}
 

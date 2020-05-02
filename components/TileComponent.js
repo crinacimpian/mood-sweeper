@@ -37,7 +37,7 @@ export default function TileComponent(props) {
         return <View></View>;
     }
     return (
-        <View>
+        <View key={tile.x * 100 + tile.y}>
             <Button buttonStyle={styles.tile} type="solid"
                 onPress={() => props._openTile(tile)}
                 key={tile.x * 100 + tile.y}

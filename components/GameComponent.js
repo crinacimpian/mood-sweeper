@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
-import { newBoard, resetMoods } from '../redux/actions';
+import { newBoard, resetMoods, setGameOver } from '../redux/actions';
 import Banner from './BannerComponent';
 import Board from './BoardComponent';
 import Status from './StatusComponent';
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(null, { newBoard, resetMoods })(Game);
+export default connect(null, { newBoard, resetMoods, setGameOver })(Game);

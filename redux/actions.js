@@ -1,4 +1,4 @@
-import { UPDATE_BOARD, NEW_BOARD, ADD_MOOD, RESET_MOODS } from './actionTypes';
+import { UPDATE_BOARD, NEW_BOARD, ADD_MOOD, RESET_MOODS, GAME_OVER } from './actionTypes';
 import BoardGenerator from '../common/board-generator';
 
 export const newBoard = (width, height) => {
@@ -23,3 +23,9 @@ export const resetMoods = () => ({
     type: RESET_MOODS,
     payload: {}
 });
+
+export const setGameOver = (gameOver) => ({
+    type: GAME_OVER,
+    payload: gameOver
+});
+

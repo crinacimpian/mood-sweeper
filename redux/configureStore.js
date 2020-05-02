@@ -5,6 +5,7 @@ import { persistStore, persistCombineReducers } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { BoardReducer } from './reducer/boardReducer';
 import { MoodReducer } from './reducer/moodReducer';
+import { GameOverReducer } from './reducer/gameOverReducer';
 
 const config = {
     key: 'root',
@@ -17,7 +18,8 @@ export const ConfigureStore = () => {
     const store = createStore(
         persistCombineReducers(config, {
             board: BoardReducer,
-            moods: MoodReducer
+            moods: MoodReducer,
+            gameOver: GameOverReducer
         }),
         applyMiddleware(thunk, logger)
     );

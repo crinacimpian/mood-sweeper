@@ -36,7 +36,10 @@ const Description = () => {
           'Fire' element
           (Alertness or Feverishness).
           The actual mood weighs 10 for the positive moods
-          and -10 for the negative moods.
+          and -10 for the negative moods.{`\n`}
+          When you succeed flipping all the non mood tiles,
+          the mood tiles are automatically changed to 
+          'Bliss' - {` `}<FontistoIcon name='atom' /> ether element. Each scores 20 points.
           {`\n`}{`\n`}
           When you choose a positive mood, action is needed
           to help that mood. Take a moment to be in that mood.

@@ -6,11 +6,16 @@ import FontistoIcon from 'react-native-vector-icons/Fontisto';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { connect } from 'react-redux';
 
-import { newBoard, resetMoods } from '../redux/actions';
+import { newBoard, resetMoods, setGameOver } from '../redux/actions';
 import {DEFAULT_WIDTH, DEFAULT_HEIGHT} from '../common/state';
 
 
-const Controls = ({ newBoard }) => {
+const Controls = ({ newBoard, resetMoods,  setGameOver}) => {
+    const _resetGame = () => {
+        newBoard(DEFAULT_WIDTH, DEFAULT_HEIGHT); 
+        resetMoods();
+        setGameOver(false);
+    }
     return (
         <View style={styles.container}>
             <Text style={styles.text}>
@@ -21,17 +26,17 @@ const Controls = ({ newBoard }) => {
                 {` `}<FontistoIcon name='meteor' />  air and
                 {` `}<FontistoIcon name='atom' />  ether.
                 {`\n`}And so the universe.{`\n`}
-                The universe is just an expression of the Self.{`\n`}
+                The universe is only an expression of the Self.{`\n`}
                 There is nothing to control.{`\n`}
                 All it's happening in the Self, by the Self, for the Self.{`\n`}
-                Right now you are FREE!{`\n`}
+                You are FREE right now!{`\n`}
                 <Text style={styles.textSmall}
                     onPress={() => Linking.openURL('https://www.artofliving.org/us-en/wisdom/ashtavakra-gita')}>
                     >from Sri Sri Ravi Shankar's commentary on Ashtavakra Gita</Text>
                     {`\n`}
             </Text>
             <Button buttonStyle={styles.button} type="solid"
-                onPress={() => { newBoard(DEFAULT_WIDTH, DEFAULT_HEIGHT); resetMoods(); }}
+                onPress={() => _resetGame()}
                 title="Witness Again" titleStyle={styles.buttonTitle}
                 icon={<Icon name='spa' size={20} color="white" />}
             />
@@ -69,4 +74,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(null, { newBoard, resetMoods })(Controls);
+export default connect(null, { newBoard, resetMoods, setGameOver })(Controls);
