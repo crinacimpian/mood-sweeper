@@ -6,6 +6,7 @@ import { Card } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import FontistoIcon from 'react-native-vector-icons/Fontisto';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Description = () => {
   return (
@@ -47,6 +48,7 @@ const Description = () => {
           And more amazing experiences will come on the way. 
           {`\n`}{`\n`}
           Enjoy the experience!
+          {`\n`}{`\n`}{`\n`}
           </Text>
         </Card>
       </Animatable.View>
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
     color: '#1c2833',
   },
   descriptionText: {
-    fontSize: 12,
+    fontSize: 16,
     color: '#1c2833'
   }
 });

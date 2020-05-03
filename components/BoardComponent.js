@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   modal: {
     justifyContent: 'center',
     margin: 20,
-    backgroundColor: '#fff'
+    backgroundColor: '#F5FCFF'
   },
   modalTitle: {
     fontSize: 16,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     backgroundColor: '#0cbdee',
     textAlign: 'center',
-    color: 'white',
+    color: '#F5FCFF',
     marginBottom: 20,
     padding: 5
   },

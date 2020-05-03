@@ -1,6 +1,6 @@
 {
   "name": "MoodSweeper",
-  "description": "A twist of the MineSweeper game. The bombs are replaced with bad moods and you are given tips to change those moods when you encounter them.",
+  "description": "A twist of the MineSweeper game. Bombs are replaced with the moods. You are given tips to play those moods when you encounter them.",
   "expo": {
     "name": "MoodSweeper",
     "slug": "MoodSweeper",
@@ -10,10 +10,20 @@
       "android",
       "web"
     ],
+    "icon": "./assets/logo.png",
+    "splash": {
+      "image": "./assets/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F5FCFF"
+    },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/images/*"
     ],
-    "description": "A twist of the MineSweeper game. The bombs are replaced with bad moods and you are given tips to change those moods when you encounter them.",
+    "ios": {
+      "bundleIdentifier": "io.moodsweeper",
+      "buildNumber": "1.0.0"
+    },
+    "description": "A twist of the MineSweeper game. Bombs are replaced with the moods. You are given tips to play those moods when you encounter them.",
     "githubUrl": "https://github.com/crinacimpian/mood-sweeper"
   }
 }

@@ -21,7 +21,7 @@ function Contact() {
                 <Button
                     title="Send Email"
                     buttonStyle={{ backgroundColor: "#2089dc", marginTop: 10 }}
-                    icon={<Icon name='envelope-o' type='font-awesome' color='white' />}
+                    icon={<Icon name='envelope-o' type='font-awesome' color='#F5FCFF' />}
                     onPress={sendMail()}
                 />
             </Card>

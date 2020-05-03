@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         flex: 1,
         flexDirection: 'column',
-        paddingTop: 10
+        paddingTop: 10,
+        marginLeft: 20
     },
     row: {
         flex: 0.15,
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start"
     },
     text: {
-        fontSize: 12,
+        fontSize: 14,
         color: '#1c2833',
         fontStyle: 'normal'
     }

@@ -7,6 +7,8 @@ Main  | Moods  | Positive Mood  | Navigation
 ![picture](img/ms-main.png) | ![picture](img/ms-moods.png) | ![picture](img/ms-positive-mood.png) | ![picture](img/ms-navigation.png)
 
 
+Available at https://exp.host/@crina.cimpian/MoodSweeper.
+
 ## Launch the game from the source code
 
 After you clone the source code, install it locally:

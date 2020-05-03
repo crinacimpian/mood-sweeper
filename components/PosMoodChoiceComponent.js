@@ -28,7 +28,7 @@ const PosMoodChoice = (props) => {
         size={20}
         onFinish={() => props._completedPosMood(mood)}
         onPress={() => alert('hello')}
-        digitStyle={{ backgroundColor: '#FFF' }}
+        digitStyle={{ backgroundColor: '#F5FCFF' }}
         digitTxtStyle={{ color: '#2089dc' }}
         timeToShow={['S']}
       />
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   modal: {
     justifyContent: 'center',
     margin: 50,
-    backgroundColor: '#fff',
+    backgroundColor: '#F5FCFF',
     flex: 1
   },
   title: {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'white',
+    color: '#F5FCFF',
   },
   description: {
     flexDirection: 'row',

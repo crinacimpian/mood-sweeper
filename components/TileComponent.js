@@ -21,18 +21,18 @@ export default function TileComponent(props) {
                     let mood = MOODS.get(tile.mood);
                     return { fa: mood.icon, color: mood.color, size: 20, badgeNumber: 0 };
                 case NUMBER:
-                    return { fa: "flower-poppy", color: "#f3d113", size: 15, badgeNumber: tile.number };
+                    return { fa: "flower-poppy", color: "#f3d113", size: 20, badgeNumber: tile.number };
                 case NEUTRAL:
-                    return { fa: "leaf", color: "#5ae298", size: 10, badgeNumber: 0 };
+                    return { fa: "leaf", color: "#5ae298", size: 20, badgeNumber: 0 };
             }
-        return { fa: "cloud-outline", color: "#0cbdee", size: 10, badgeNumber: 0 };
+        return { fa: "cloud-outline", color: "#0cbdee", size: 20, badgeNumber: 0 };
     }
 
     const BadgeNumber = () => {
         if (icon().badgeNumber > 0)
             return <Badge value={icon().badgeNumber}
                 badgeStyle={{ width: 5, height: 10, backgroundColor: 'transparent' }}
-                textStyle={{ fontSize: 5, color: '#1c2833' }}
+                textStyle={{ fontSize: 10, color: '#1c2833' }}
                 containerStyle={{ position: 'absolute', top: -1, right: -1 }} />
         return <View></View>;
     }
@@ -41,7 +41,7 @@ export default function TileComponent(props) {
             <Button buttonStyle={styles.tile} type="solid"
                 onPress={() => props._openTile(tile)}
                 key={tile.x * 100 + tile.y}
-                icon={<Icon name={icon().fa} color={icon().color} />}
+                icon={<Icon name={icon().fa} color={icon().color} size={icon().size}/>}
                 iconRight
                 disabled={disabled} disabledStyle={{ backgroundColor: 'transparent' }}
             />
@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     },
     tile: {
-        width: 30,
-        height: 30,
+        width: 40,
+        height: 40,
         backgroundColor: 'transparent',
         alignContent: 'center'
     }

@@ -20,9 +20,9 @@ const headerStyle = {
   headerStyle: {
     backgroundColor: "#2089dc"
   },
-  headerTintColor: '#fff',
+  headerTintColor: '#F5FCFF',
   headerTitleStyle: {
-    color: "#fff"
+    color: "#F5FCFF"
   }
 };
 
@@ -88,7 +88,7 @@ function CustomDrawerContent(props) {
 
 const MainNavigator = () => {
   return (
-    <Drawer.Navigator drawerStyle={{ backgroundColor: 'white' }} drawerContent={props => <CustomDrawerContent {...props} />}>
+    <Drawer.Navigator drawerStyle={{ backgroundColor: '#F5FCFF' }} drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="GameNavigator" component={GameNavigator} options={{
         title: 'Game',
         drawerIcon: ({ tintColor }) => <FontAwesome5Icon name="spa" size={15} color={tintColor} />
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   },
   drawerHeader: {
     backgroundColor: '#2089dc',
-    color: 'white',
+    color: '#F5FCFF',
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   drawerHeaderText: {
-    color: 'white',
+    color: '#F5FCFF',
     fontSize: 18,
     fontWeight: 'bold',
     padding: 10

@@ -38,7 +38,7 @@ const Controls = ({ newBoard, resetMoods,  setGameOver}) => {
             <Button buttonStyle={styles.button} type="solid"
                 onPress={() => _resetGame()}
                 title="Witness Again" titleStyle={styles.buttonTitle}
-                icon={<Icon name='spa' size={20} color="white" />}
+                icon={<Icon name='spa' size={20} color="#F5FCFF" />}
             />
         </View >
     );
@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
         marginLeft: 20
     },
     button: {
-        alignContent: 'center',
-        width: 150
+        marginTop: 5,
+        alignContent: 'center'
     },
     buttonTitle: {
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: 'bold',
         padding: 5
     },

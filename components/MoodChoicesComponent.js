@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   modal: {
     justifyContent: 'center',
     margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#F5FCFF',
     flex: 1
   },
   modalTitle: {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     backgroundColor: '#2089dc',
     textAlign: 'center',
-    color: 'white',
+    color: '#F5FCFF',
     padding: 5
   },
   titleStyle: {
